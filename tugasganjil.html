@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Looping Bilangan Ganjil</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        input {
+            margin: 5px 0;
+        }
+        button {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h2>Bilangan Ganjil dalam Rentang</h2>
+    <label for="start">Masukkan angka awal:</label><br>
+    <input type="number" id="start" placeholder="Angka awal"><br>
+    <label for="end">Masukkan angka akhir:</label><br>
+    <input type="number" id="end" placeholder="Angka akhir"><br>
+    <button onclick="tampilkanBilanganGanjil()">Tampilkan Bilangan Ganjil</button>
+
+    <h3>Hasil:</h3>
+    <div id="hasil"></div>
+
+    <script>
+        function tampilkanBilanganGanjil() {
+            // Ambil nilai dari input
+            let start = parseInt(document.getElementById("start").value);
+            let end = parseInt(document.getElementById("end").value);
+            let hasil = document.getElementById("hasil");
+
+            // Bersihkan hasil sebelumnya
+            hasil.innerHTML = "";
+
+            // Validasi input
+            if (isNaN(start) || isNaN(end)) {
+                hasil.innerHTML = "<p style='color: red;'>Harap masukkan angka yang valid!</p>";
+                return;
+            }
+
+            // Looping dan menampilkan bilangan ganjil
+            let output = "";
+            for (let i = start; i <= end; i++) {
+                if (i % 2 !== 0) {
+                    output += i + " ";
+                }
+            }
+
+            // Tampilkan hasil
+            hasil.innerHTML = output ? output : "<p>Tidak ada bilangan ganjil dalam rentang ini.</p>";
+        }
+    </script>
+</body>
+</html>
