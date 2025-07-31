@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hak Pilih</title>
+    <style>
+        /* CSS untuk memperindah tampilan */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        input[type="number"], input[type="radio"], button {
+            margin-bottom: 15px;
+            width: 100%;
+        }
+
+        input[type="number"] {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .status-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .status-container label {
+            margin-left: 10px;
+            font-size: 14px;
+        }
+    </style>
+    <script>
+        // Nama: [Nama Anda]
+        // Kelas: [Kelas Anda]
+
+        // Fungsi untuk mengecek hak pilih
+        function cekHakPilih() {
+            // Mengambil nilai dari input form
+            let umur = parseInt(document.getElementById("umur").value);
+            let status = document.querySelector('input[name="status"]:checked').value;
+
+            // Mengecek kondisi menggunakan operator logika "OR"
+            if (umur > 17 || status === "menikah") {
+                alert("Anda memiliki Hak Pilih"); // Jika memenuhi syarat
+            } else {
+                alert("Anda tidak Memiliki Hak Pilih"); // Jika tidak memenuhi syarat
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Cek Hak Pilih</h2>
+
+        <!-- Input untuk umur -->
+        <label for="umur">Masukkan umur Anda:</label>
+        <input type="number" id="umur" name="umur" required><br>
+
+        <!-- Input untuk status pernikahan menggunakan radio button -->
+        <label>Status pernikahan:</label>
+        <div class="status-container">
+            <input type="radio" id="belum" name="status" value="belum" required>
+            <label for="belum">Belum Menikah</label>
+            <input type="radio" id="menikah" name="status" value="menikah">
+            <label for="menikah">Menikah</label>
+        </div>
+
+        <!-- Tombol untuk mengecek hak pilih -->
+        <button onclick="cekHakPilih()">Cek Hak Pilih</button>
+    </div>
+
+</body>
+</html>
